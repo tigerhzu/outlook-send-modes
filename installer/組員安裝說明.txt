@@ -1,0 +1,20 @@
+寄信模式 1.6.2 — 桌面版新版 Outlook（Windows 10/11 x64）
+
+1. 每台電腦解壓縮後執行 SendModes-Setup-1.6.2.exe。
+2. 若出現 localhost 憑證信任提示，核對後回覆。
+3. 安裝後會自動測試。也可按「診斷／測試本機」重新檢查。
+4. 顯示「本機服務正常，可以關閉視窗」後，按旁邊的「關閉」。
+5. 回到桌面版新版 Outlook，新增郵件 → 應用程式 → 寄信模式。
+
+關閉視窗不會停止背景服務。測試僅檢查本機服務，不會開啟瀏覽器或操作郵件。
+測試未通過時，依視窗顯示的原因處理，重新執行安裝程式再測試。
+
+首次使用且 Outlook 尚無增益集入口：
+在瀏覽器開啟 https://aka.ms/olksideload，以桌面 Outlook 的同一信箱登入，
+在「我的增益集 → 新增自訂增益集 → 從檔案新增」選擇
+%LOCALAPPDATA%\Programs\SendModes\manifest.xml。
+這只是首次安裝入口；平常仍在桌面 Outlook 使用。已有入口或 IT 已部署時免做。
+
+診斷紀錄位於 %LOCALAPPDATA%\SendModes；可提供 setup-error.txt 與 server-error.log。
+不要傳送 localhost.pfx、password.dpapi 等憑證或密碼檔案。
+公司若限制程式執行、憑證或自啟，請由 IT 協助。

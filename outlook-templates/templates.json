@@ -1,0 +1,277 @@
+{
+  "version": 3,
+  "source": "信件範本.html（使用者核可的版本）",
+  "note": "範本文字、欄位名稱、順序、版面都由使用者決定，不可修改。",
+  "tokenPattern": "\\{\\{([a-zA-Z0-9_]+)\\}\\}",
+  "templates": [
+    {
+      "id": "overtime",
+      "name": "加班申請（事前）",
+      "subject": "加班申請",
+      "to": [
+        {
+          "name": "Purple Liu",
+          "email": "purpleliu@freedom.net.tw"
+        }
+      ],
+      "cc": [
+        {
+          "name": "Johnny Chang",
+          "email": "johnnychang@freedom.net.tw"
+        }
+      ],
+      "layout": "fields",
+      "fields": [
+        {
+          "key": "date",
+          "label": "預計加班日期",
+          "default": "/",
+          "placeholder": ""
+        },
+        {
+          "key": "time",
+          "label": "起訖時間",
+          "default": ":00 ~ :00",
+          "placeholder": ""
+        },
+        {
+          "key": "hours",
+          "label": "加班時數",
+          "default": "1 小時",
+          "placeholder": ""
+        },
+        {
+          "key": "case",
+          "label": "案件編號／客戶",
+          "default": "#",
+          "placeholder": ""
+        },
+        {
+          "key": "work",
+          "label": "工作內容",
+          "default": "",
+          "placeholder": "具體要做什麼"
+        },
+        {
+          "key": "note",
+          "label": "備註",
+          "default": "無",
+          "placeholder": ""
+        }
+      ],
+      "file": "templates/overtime.html"
+    },
+    {
+      "id": "wfh-request",
+      "name": "居家上班申請（提前申請）",
+      "subject": "申請{{subject_date}}居家上班",
+      "to": [
+        {
+          "name": "Johnny Chang",
+          "email": "johnnychang@freedom.net.tw"
+        }
+      ],
+      "cc": [
+        {
+          "name": "Purple Liu",
+          "email": "purpleliu@freedom.net.tw"
+        },
+        {
+          "name": "Tiger Hsu",
+          "email": "tigerhsu@freedom.net.tw"
+        }
+      ],
+      "subjectFields": [
+        {
+          "key": "subject_date",
+          "label": "主旨日期",
+          "default": "",
+          "placeholder": "MM/DD（週X）"
+        }
+      ],
+      "layout": "fields",
+      "fields": [
+        {
+          "key": "dates",
+          "label": "申請日期",
+          "default": "/ ~ /",
+          "placeholder": ""
+        },
+        {
+          "key": "reason",
+          "label": "申請原因",
+          "default": "",
+          "placeholder": ""
+        },
+        {
+          "key": "contact",
+          "label": "居家期間聯絡方式",
+          "default": "Teams / 手機",
+          "placeholder": ""
+        }
+      ],
+      "file": "templates/wfh-request.html"
+    },
+    {
+      "id": "wfh-tasklist",
+      "name": "居家申請（附當日工作清單）",
+      "subject": "居家申請 {{date}}",
+      "to": [
+        {
+          "name": "Hank Yu",
+          "email": "hankyu@freedom.net.tw"
+        }
+      ],
+      "cc": [
+        {
+          "name": "Purple Liu",
+          "email": "purpleliu@freedom.net.tw"
+        },
+        {
+          "name": "Johnny Chang",
+          "email": "johnnychang@freedom.net.tw"
+        },
+        {
+          "name": "Tiger Hsu",
+          "email": "tigerhsu@freedom.net.tw"
+        }
+      ],
+      "introFields": [
+        {
+          "key": "date",
+          "label": "日期",
+          "default": "",
+          "placeholder": "MM/DD（週X）"
+        }
+      ],
+      "layout": "list",
+      "columns": [
+        {
+          "key": "case",
+          "label": "案件編號",
+          "default": "#",
+          "placeholder": ""
+        },
+        {
+          "key": "client",
+          "label": "客戶",
+          "default": "",
+          "placeholder": ""
+        },
+        {
+          "key": "work",
+          "label": "工作內容",
+          "default": "",
+          "placeholder": ""
+        }
+      ],
+      "defaultRows": 4,
+      "rowBackground": {
+        "odd": "#ffffff",
+        "even": "#f8fafc"
+      },
+      "file": "templates/wfh-tasklist.html"
+    },
+    {
+      "id": "it-request",
+      "name": "內部 IT 需求／權限申請",
+      "subject": "【內部 IT 需求】{{system}}{{item}}－Tiger Hsu",
+      "to": [
+        {
+          "name": "Jane Hu",
+          "email": "janehu@freedom.net.tw"
+        }
+      ],
+      "cc": [
+        {
+          "name": "Purple Liu",
+          "email": "purpleliu@freedom.net.tw"
+        },
+        {
+          "name": "Tiger Hsu",
+          "email": "tigerhsu@freedom.net.tw"
+        }
+      ],
+      "introFields": [
+        {
+          "key": "request",
+          "label": "系統名稱＋權限",
+          "default": "",
+          "placeholder": "系統名稱＋權限"
+        },
+        {
+          "key": "usage",
+          "label": "一句話說明用途",
+          "default": "",
+          "placeholder": "一句話說明用途"
+        }
+      ],
+      "subjectFields": [
+        {
+          "key": "item",
+          "label": "申請項目",
+          "default": "",
+          "placeholder": "申請項目"
+        }
+      ],
+      "layout": "fields",
+      "fields": [
+        {
+          "key": "type",
+          "label": "需求類型",
+          "default": "",
+          "placeholder": "權限申請／異動／新增帳號／軟體安裝"
+        },
+        {
+          "key": "system",
+          "label": "系統或軟體名稱",
+          "default": "",
+          "placeholder": "系統名稱"
+        },
+        {
+          "key": "action",
+          "label": "需求動作",
+          "default": "",
+          "placeholder": "例：在既有 Read Only 權限之外，申請 Write 權限"
+        },
+        {
+          "key": "content",
+          "label": "需求內容",
+          "default": "",
+          "placeholder": "具體要做哪些操作"
+        },
+        {
+          "key": "purpose",
+          "label": "需求原因／用途",
+          "default": "",
+          "placeholder": "為什麼需要"
+        },
+        {
+          "key": "scope",
+          "label": "使用／影響對象",
+          "default": "",
+          "placeholder": "誰會使用、影響範圍"
+        },
+        {
+          "key": "due",
+          "label": "希望完成日期",
+          "default": "",
+          "placeholder": "YYYY/MM/DD，或「無指定，依作業安排」"
+        },
+        {
+          "key": "note",
+          "label": "其他補充／說明",
+          "default": "",
+          "placeholder": "例：不包含資料刪除或系統管理權限"
+        },
+        {
+          "key": "approval",
+          "label": "主管審核",
+          "default": "",
+          "placeholder": "已徵求主管同意／待主管核可"
+        }
+      ],
+      "file": "templates/it-request.html"
+    }
+  ]
+}

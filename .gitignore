@@ -1,0 +1,17 @@
+node_modules/
+dist/
+coverage/
+playwright-report/
+test-results/
+.memory/
+*.local
+manifest.production.xml
+.certs/
+.runtime/
+company-data/
+.env
+.env.*
+!.env.example
+*.pem
+*.pfx
+release/

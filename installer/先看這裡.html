@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-Hant">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>把寄信模式加入自己的 Outlook</title>
+<style>
+  * { box-sizing: border-box }
+  body { max-width: 42rem; margin: 3rem auto; padding: 0 1.5rem; font: 1rem/1.7 "Microsoft JhengHei UI", system-ui, sans-serif; color: #202833 }
+  h1 { font-size: 1.65rem } h2 { font-size: 1.15rem; margin: 1.8rem 0 .35rem }
+  p { margin: .4rem 0 } li { margin: .55rem 0 }
+  a { color: #174f91 } .open { display: inline-block; background: #174f91; color: white; border-radius: .35rem; padding: .45rem 1rem; text-decoration: none }
+  code { overflow-wrap: anywhere } summary { cursor: pointer; font-weight: bold }
+  details { border-top: 1px solid #bcc7d0; margin-top: 1.5rem; padding-top: .8rem }
+</style>
+<main>
+  <h1>把寄信模式加入自己的 Outlook</h1>
+  <p>如果這台電腦已顯示「本機服務正常」，直接從第 2 步開始。</p>
+  <h2>1. 新電腦先安裝本機服務</h2>
+  <p>在 Windows 10／11 x64 將 ZIP 全部解壓縮，再執行同資料夾的 <code>SendModes-Setup-1.6.2.exe</code>。若 Windows 詢問是否信任安裝程式剛建立的 localhost 憑證，請核對後確認。等診斷顯示「本機服務正常」再關閉視窗。</p>
+  <h2>2. 在要用的信箱加入增益集</h2>
+  <p>先看桌面 Outlook 撰寫郵件時的寄件者地址。開啟下方頁面後，確認瀏覽器登入的是同一個信箱；若自動登入其他帳號，可在瀏覽器的私人視窗開啟 <strong>https://aka.ms/olksideload</strong> 再登入。</p>
+  <p><a class="open" href="https://aka.ms/olksideload" target="_blank" rel="noopener noreferrer">開啟 Microsoft 增益集安裝頁</a></p>
+  <ol>
+    <li>選「我的增益集」（My add-ins），往下找到「自訂增益集」（Custom Addins）。若已列出「寄信模式」，直接到第 3 步。</li>
+    <li>選「新增自訂增益集」→「從檔案新增」（Add from File）。在剛解壓縮的資料夾選 <code>manifest.xml</code>，依提示完成安裝。</li>
+  </ol>
+  <h2>3. 在新草稿確認入口</h2>
+  <p>回到 Windows 新版 Outlook，選剛才的信箱，按「新增郵件」→ 撰寫工具列的「應用程式」（Apps）→「寄信模式」。看到模式清單就測試完成，可直接關閉草稿。</p>
+  <details>
+    <summary>找不到「從檔案新增」或「寄信模式」？</summary>
+    <p>若帳號正確，卻缺少「從檔案新增」或出現權限錯誤，請將同包的 <code>manifest.xml</code> 交給 IT，請他們確認這個信箱可安裝自訂增益集，或部署給這個信箱。</p>
+    <p>若安裝頁已列出「寄信模式」，請在網頁版同一信箱開新草稿，查看「應用程式」。若網頁版看得到，重新開啟桌面 Outlook 再試。回報時請註明哪一步、哪個畫面看不到；若附截圖，請遮住信箱和郵件內容。</p>
+  </details>
+</main>
+</html>

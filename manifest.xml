@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+  xsi:type="MailApp">
+  <Id>11d02175-05e1-4798-9724-ea05d5e29566</Id>
+  <Version>1.7.0.0</Version>
+  <ProviderName>寄信模式</ProviderName>
+  <DefaultLocale>zh-TW</DefaultLocale>
+  <DisplayName DefaultValue="寄信模式"/>
+  <Description DefaultValue="預覽公司範本或自訂模式並套用至目前草稿，保留原有簽名及內容，由您自行傳送。"/>
+  <IconUrl DefaultValue="https://localhost:3443/icons/mail-felt-64.png?v=1.5"/>
+  <HighResolutionIconUrl DefaultValue="https://localhost:3443/icons/mail-felt-128.png?v=1.5"/>
+  <SupportUrl DefaultValue="https://localhost:3443/support.html"/>
+  <AppDomains><AppDomain>https://localhost:3443</AppDomain></AppDomains>
+  <Hosts><Host Name="Mailbox"/></Hosts>
+  <Requirements><Sets><Set Name="Mailbox" MinVersion="1.3"/></Sets></Requirements>
+  <FormSettings>
+    <Form xsi:type="ItemEdit">
+      <DesktopSettings><SourceLocation DefaultValue="https://localhost:3443/taskpane.html"/></DesktopSettings>
+    </Form>
+  </FormSettings>
+  <Permissions>ReadWriteItem</Permissions>
+  <Rule xsi:type="ItemIs" ItemType="Message" FormType="Edit"/>
+  <DisableEntityHighlighting>false</DisableEntityHighlighting>
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides" xsi:type="VersionOverridesV1_0">
+    <Requirements><bt:Sets DefaultMinVersion="1.3"><bt:Set Name="Mailbox"/></bt:Sets></Requirements>
+    <Hosts>
+      <Host xsi:type="MailHost">
+        <DesktopFormFactor>
+          <FunctionFile resid="Commands.Url"/>
+          <ExtensionPoint xsi:type="MessageComposeCommandSurface">
+            <OfficeTab id="TabDefault">
+              <Group id="SendModes.ComposeGroup">
+                <Label resid="Group.Label"/>
+                <Control xsi:type="Button" id="SendModes.OpenPane">
+                  <Label resid="Pane.Label"/>
+                  <Supertip><Title resid="Pane.Label"/><Description resid="Pane.Description"/></Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Icon.16"/>
+                    <bt:Image size="32" resid="Icon.32"/>
+                    <bt:Image size="80" resid="Icon.80"/>
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane"><SourceLocation resid="Pane.Url"/></Action>
+                </Control>
+              </Group>
+            </OfficeTab>
+          </ExtensionPoint>
+        </DesktopFormFactor>
+      </Host>
+    </Hosts>
+    <Resources>
+      <bt:Images>
+        <bt:Image id="Icon.16" DefaultValue="https://localhost:3443/icons/mail-felt-16.png?v=1.5"/>
+        <bt:Image id="Icon.32" DefaultValue="https://localhost:3443/icons/mail-felt-32.png?v=1.5"/>
+        <bt:Image id="Icon.80" DefaultValue="https://localhost:3443/icons/mail-felt-80.png?v=1.5"/>
+      </bt:Images>
+      <bt:Urls>
+        <bt:Url id="Commands.Url" DefaultValue="https://localhost:3443/commands.html"/>
+        <bt:Url id="Pane.Url" DefaultValue="https://localhost:3443/taskpane.html"/>
+      </bt:Urls>
+      <bt:ShortStrings>
+        <bt:String id="Group.Label" DefaultValue="寄信模式"/>
+        <bt:String id="Pane.Label" DefaultValue="寄信模式"/>
+      </bt:ShortStrings>
+      <bt:LongStrings><bt:String id="Pane.Description" DefaultValue="預覽公司範本或自訂模式，填入目前草稿。"/></bt:LongStrings>
+    </Resources>
+    <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.1" xsi:type="VersionOverridesV1_1">
+      <Requirements><bt:Sets DefaultMinVersion="1.5"><bt:Set Name="Mailbox"/></bt:Sets></Requirements>
+      <Hosts>
+        <Host xsi:type="MailHost">
+          <DesktopFormFactor>
+            <FunctionFile resid="Commands.Url"/>
+            <ExtensionPoint xsi:type="MessageComposeCommandSurface">
+              <OfficeTab id="TabDefault">
+                <Group id="SendModes.ComposeGroup">
+                  <Label resid="Group.Label"/>
+                  <Control xsi:type="Button" id="SendModes.OpenPane">
+                    <Label resid="Pane.Label"/>
+                    <Supertip><Title resid="Pane.Label"/><Description resid="Pane.Description"/></Supertip>
+                    <Icon>
+                      <bt:Image size="16" resid="Icon.16"/>
+                      <bt:Image size="32" resid="Icon.32"/>
+                      <bt:Image size="80" resid="Icon.80"/>
+                    </Icon>
+                    <Action xsi:type="ShowTaskpane">
+                      <SourceLocation resid="Pane.Url"/>
+                      <SupportsPinning>true</SupportsPinning>
+                    </Action>
+                  </Control>
+                </Group>
+              </OfficeTab>
+            </ExtensionPoint>
+          </DesktopFormFactor>
+        </Host>
+      </Hosts>
+      <Resources>
+        <bt:Images>
+          <bt:Image id="Icon.16" DefaultValue="https://localhost:3443/icons/mail-felt-16.png?v=1.5"/>
+          <bt:Image id="Icon.32" DefaultValue="https://localhost:3443/icons/mail-felt-32.png?v=1.5"/>
+          <bt:Image id="Icon.80" DefaultValue="https://localhost:3443/icons/mail-felt-80.png?v=1.5"/>
+        </bt:Images>
+        <bt:Urls>
+          <bt:Url id="Commands.Url" DefaultValue="https://localhost:3443/commands.html"/>
+          <bt:Url id="Pane.Url" DefaultValue="https://localhost:3443/taskpane.html"/>
+        </bt:Urls>
+        <bt:ShortStrings>
+          <bt:String id="Group.Label" DefaultValue="寄信模式"/>
+          <bt:String id="Pane.Label" DefaultValue="寄信模式"/>
+        </bt:ShortStrings>
+        <bt:LongStrings><bt:String id="Pane.Description" DefaultValue="預覽公司範本或自訂模式，填入目前草稿。"/></bt:LongStrings>
+      </Resources>
+    </VersionOverrides>
+  </VersionOverrides>
+</OfficeApp>

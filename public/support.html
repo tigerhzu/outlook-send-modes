@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>寄信模式使用說明</title>
+    <style>body{font:16px/1.7 "Segoe UI","Microsoft JhengHei",sans-serif;color:#242424;max-width:720px;margin:40px auto;padding:0 24px}h1{font-size:28px}a{color:#0f6cbd}li{margin-bottom:8px}code{background:#f2f2f2;padding:2px 5px}</style>
+  </head>
+  <body>
+    <h1>寄信模式</h1>
+    <p>在 Windows 新版 Outlook 撰寫郵件時，從應用程式選單開啟「寄信模式」。點模式旁鉛筆，按 To／CC 的「＋」新增一人或選常用聯絡人，再按 Save。首頁「常用聯絡人」可預先保存 Email。</p>
+    <ul>
+      <li>Save 儲存後直接返回列表。</li>
+      <li>點「簽章」貼上內容並 Save。之後再點「簽章」即可加入草稿底部；鉛筆用來編輯，圖片可貼上或選原檔。</li>
+      <li>在 Outlook 直接修改的收件者、主旨和表格，只屬於目前草稿；只有管理頁的「Save」會更新預設。</li>
+      <li>設定保存在這台電腦上 Outlook 增益集的本機儲存空間，不會隨信箱同步。清除應用程式資料、換電腦或更換部署網址後，請還原已匯出的備份。</li>
+      <li>套用前先以 Tab 完成收件者輸入；Outlook API 只回傳已解析的收件者。</li>
+      <li>套用過程不要同時編輯草稿。若只完成部分欄位，請依錯誤訊息檢查草稿後再試。</li>
+      <li>若無法辨識上次的模板區域，增益集會停止以保護資料。請在新的草稿套用後，再搬入需要保留的內容。</li>
+      <li>此增益集不會自動寄信。確認收件者和內容後，由您使用 Outlook 的「傳送」。</li>
+    </ul>
+    <p>本機開發版必須持續執行 <code>npm start</code>。伺服器關閉時增益集無法載入；已經填入草稿的內容仍可在 Outlook 編輯。</p>
+    <p>詳細安裝、憑證、部署與驗收步驟請參閱隨專案提供的 <code>docs/INSTALL.md</code> 和 <code>docs/OUTLOOK-ACCEPTANCE.md</code>。</p>
+  </body>
+</html>

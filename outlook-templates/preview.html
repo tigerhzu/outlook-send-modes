@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Outlook 信件範本</title>
+<style>
+  :root { --bg:#eef1f5; --card:#ffffff; --ink:#1d2733; --muted:#5d6b7a; --line:#d6dde6; --brand:#1f4e79; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:"Microsoft JhengHei","PingFang TC",Arial,sans-serif; }
+  .wrap { max-width:760px; margin:0 auto; padding:32px 16px 64px; }
+  h1 { font-size:22px; margin:0 0 6px; }
+  .lead { color:var(--muted); font-size:14px; line-height:1.7; margin:0 0 24px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:10px; margin:0 0 28px; overflow:hidden; }
+  .card-head { display:flex; gap:12px; align-items:flex-start; justify-content:space-between; padding:16px 20px; border-bottom:1px solid var(--line); background:#f8fafc; }
+  .card-head h2 { font-size:17px; margin:0 0 6px; }
+  .meta { font-size:13px; color:var(--muted); line-height:1.7; }
+  .meta b { color:var(--ink); font-weight:600; }
+  button { flex:none; background:var(--brand); color:#fff; border:0; border-radius:6px; padding:9px 16px; font-size:14px; font-family:inherit; cursor:pointer; }
+  button:hover { background:#173c5e; }
+  .preview { padding:24px 20px; overflow-x:auto; }
+  .tip { margin:0; padding:12px 20px; font-size:13px; color:#7a5a00; background:#fff8e1; border-top:1px solid #f0e2b6; line-height:1.7; }
+  .toast { position:fixed; left:50%; bottom:24px; transform:translateX(-50%); background:#1d2733; color:#fff; padding:10px 18px; border-radius:6px; font-size:14px; opacity:0; transition:opacity .2s; pointer-events:none; }
+  .toast.show { opacity:1; }
+  .btns { display:flex; gap:8px; flex:none; }
+  button.ghost { background:#ffffff; color:var(--brand); border:1px solid var(--brand); }
+  button.ghost:hover { background:#eef3f8; }
+  button.ghost.on { background:#fff3cd; border-color:#c99a00; color:#7a5a00; }
+  .toolbar { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin:0 0 24px; padding:12px 16px; background:#ffffff; border:1px solid var(--line); border-radius:10px; font-size:13px; color:var(--muted); }
+  .toolbar .grow { flex:1; min-width:200px; line-height:1.6; }
+  [contenteditable="true"] { outline:2px dashed #c99a00; outline-offset:8px; border-radius:2px; }
+  [contenteditable="true"] td:hover { box-shadow:inset 0 0 0 1px #c99a00; }
+  @media (max-width:600px) { .card-head { flex-direction:column; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Outlook 信件範本</h1>
+  <p class="lead">按「複製範本」，到 Outlook 新郵件內文按 Ctrl+V 貼上，再把【】換成這次的內容。範本只用表格和行內樣式排版，貼進 Outlook 也不會跑版。</p>
+  <div class="toolbar">
+    <div class="grow">按範本上的「編輯」就能直接改字，改完再按一次「完成」。修改會自動暫存在這個瀏覽器；要交付時按「下載修改後的檔案」，用下載的檔案取代原本的 信件範本.html。</div>
+    <button onclick="downloadPage()">下載修改後的檔案</button>
+    <button class="ghost" onclick="resetDrafts()">捨棄所有修改</button>
+  </div>
+
+  <!-- ============ 1. 加班申請 ============ -->
+  <section class="card">
+    <div class="card-head">
+      <div>
+        <h2>加班申請（事前）</h2>
+        <div class="meta"><b>主旨：</b>加班申請｜<b>收件者：</b>Purple｜<b>副本：</b>Johnny</div>
+      </div>
+      <div class="btns"><button class="ghost" id="edit-tpl1" onclick="toggleEdit('tpl1')">編輯</button><button onclick="copyTpl('tpl1')">複製範本</button></div>
+    </div>
+    <div class="preview">
+      <div id="tpl1">
+<table role="presentation" width="640" cellpadding="0" cellspacing="0" border="0" style="width:640px;border-collapse:collapse;font-family:'Microsoft JhengHei',Arial,sans-serif;font-size:14px;color:#1d2733;">
+  <tr><td style="padding:0 0 12px 0;line-height:1.7;">Hi Purple,</td></tr>
+  <tr><td style="padding:0 0 16px 0;line-height:1.7;">我預計於以下時間加班，若無問題，煩請核可，</td></tr>
+  <tr><td style="padding:0;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;border:1px solid #d6dde6;">
+      <tr><td colspan="2" style="background:#1f4e79;color:#ffffff;font-weight:bold;font-size:15px;padding:10px 14px;">加班申請</td></tr>
+      <tr><td width="170" style="width:170px;background:#f2f5f9;color:#1f4e79;font-weight:bold;padding:10px 14px;border-top:1px solid #d6dde6;vertical-align:top;">預計加班日期</td><td style="padding:10px 14px;border-top:1px solid #d6dde6;line-height:1.6;">/</td></tr>
+      <tr><td width="170" style="width:170px;background:#f2f5f9;color:#1f4e79;font-weight:bold;padding:10px 14px;border-top:1px solid #d6dde6;vertical-align:top;">起訖時間</td><td style="padding:10px 14px;border-top:1px solid #d6dde6;line-height:1.6;">:00 ~ :00</td></tr>
+      <tr><td width="170" style="width:170px;background:#f2f5f9;color:#1f4e79;font-weight:bold;padding:10px 14px;border-top:1px solid #d6dde6;vertical-align:top;">加班時數</td><td style="padding:10px 14px;border-top:1px solid #d6dde6;line-height:1.6;">1 小時</td></tr>
+      <tr><td width="170" style="width:170px;background:#f2f5f9;color:#1f4e79;font-weight:bold;padding:10px 14px;border-top:1px solid #d6dde6;vertical-align:top;">案件編號／客戶</td><td style="padding:10px 14px;border-top:1px solid #d6dde6;line-height:1.6;">#</td></tr>
+      <tr><td width="170" style="width:170px;background:#f2f5f9;color:#1f4e79;font-weight:bold;padding:10px 14px;border-top:1px solid #d6dde6;vertical-align:top;">工作內容</td><td style="padding:10px 14px;border-top:1px solid #d6dde6;line-height:1.6;">【具體要做什麼】</td></tr>
+      <tr><td width="170" style="width:170px;background:#f2f5f9;color:#1f4e79;font-weight:bold;padding:10px 14px;border-top:1px solid #d6dde6;vertical-align:top;">備註</td><td style="padding:10px 14px;border-top:1px solid #d6dde6;line-height:1.6;">無</td></tr>
+    </table>
+  </td></tr>
+</table>
+      </div>
+    </div>
+    <p class="tip">預先排定的加班要事前申請。事後申請只用在臨時、緊急，或實際時數跟申請不同的時候。</p>
+  </section>
+
+  <!-- ============ 3. 居家申請（提前） ============ -->
+  <section class="card">
+    <div class="card-head">
+      <div>
+        <h2>居家上班申請（提前申請）</h2>
+        <div class="meta"><b>主旨：</b>申請【MM/DD（週X）】居家上班｜<b>收件者：</b>Johnny｜<b>副本：</b>Purple、自己</div>
+      </div>
+      <div class="btns"><button class="ghost" id="edit-tpl3" onclick="toggleEdit('tpl3')">編輯</button><button onclick="copyTpl('tpl3')">複製範本</button></div>
+    </div>
+    <div class="preview">
+      <div id="tpl3">
+<table role="presentation" width="640" cellpadding="0" cellspacing="0" border="0" style="width:640px;border-collapse:collapse;font-family:'Microsoft JhengHei',Arial,sans-serif;font-size:14px;color:#1d2733;">
+  <tr><td style="padding:0 0 12px 0;line-height:1.7;">Hi Johnny,</td></tr>
+  <tr><td style="padding:0 0 16px 0;line-height:1.7;">想申請以下日期居家上班，說明如下，再麻煩您核可，謝謝。</td></tr>
+  <tr><td style="padding:0;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;border:1px solid #d6dde6;">
+      <tr><td colspan="2" style="background:#1f4e79;color:#ffffff;font-weight:bold;font-size:15px;padding:10px 14px;">居家上班申請</td></tr>
+      <tr><td width="170" style="width:170px;background:#f2f5f9;color:#1f4e79;font-weight:bold;padding:10px 14px;border-top:1px solid #d6dde6;vertical-align:top;">申請日期</td><td style="padding:10px 14px;border-top:1px solid #d6dde6;line-height:1.6;">/ ~ /</td></tr>
+      <tr><td width="170" style="width:170px;background:#f2f5f9;color:#1f4e79;font-weight:bold;padding:10px 14px;border-top:1px solid #d6dde6;vertical-align:top;">申請原因</td><td style="padding:10px 14px;border-top:1px solid #d6dde6;line-height:1.6;"></td></tr>
+      <tr><td width="170" style="width:170px;background:#f2f5f9;color:#1f4e79;font-weight:bold;padding:10px 14px;border-top:1px solid #d6dde6;vertical-align:top;">居家期間聯絡方式</td><td style="padding:10px 14px;border-top:1px solid #d6dde6;line-height:1.6;">Teams / 手機</td></tr>
+    </table>
+  </td></tr>
+  <tr><td style="padding:16px 0 0 0;line-height:1.7;">居家期間會照常打卡，每天回報工作狀況，謝謝。</td></tr>
+</table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5. 居家申請（附工作清單） ============ -->
+  <section class="card">
+    <div class="card-head">
+      <div>
+        <h2>居家申請（附當日工作清單）</h2>
+        <div class="meta"><b>主旨：</b>居家申請 【MM/DD（週X）】｜<b>收件者：</b>Hank｜<b>副本：</b>Purple、Johnny、自己</div>
+      </div>
+      <div class="btns"><button class="ghost" id="edit-tpl5" onclick="toggleEdit('tpl5')">編輯</button><button onclick="copyTpl('tpl5')">複製範本</button></div>
+    </div>
+    <div class="preview">
+      <div id="tpl5">
+<table role="presentation" width="640" cellpadding="0" cellspacing="0" border="0" style="width:640px;border-collapse:collapse;font-family:'Microsoft JhengHei',Arial,sans-serif;font-size:14px;color:#1d2733;">
+  <tr><td style="padding:0 0 12px 0;line-height:1.7;">Hi Hank,</td></tr>
+  <tr><td style="padding:0 0 16px 0;line-height:1.7;">申請【MM/DD（週X）】居家上班，以下為當日預計工作內容：</td></tr>
+  <tr><td style="padding:0;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;border:1px solid #d6dde6;">
+      <tr>
+        <td width="40" style="width:40px;background:#1f4e79;color:#ffffff;font-weight:bold;padding:10px 8px;text-align:center;">#</td>
+        <td width="120" style="width:120px;background:#1f4e79;color:#ffffff;font-weight:bold;padding:10px 12px;">案件編號</td>
+        <td width="150" style="width:150px;background:#1f4e79;color:#ffffff;font-weight:bold;padding:10px 12px;">客戶</td>
+        <td style="background:#1f4e79;color:#ffffff;font-weight:bold;padding:10px 12px;">工作內容</td>
+      </tr>
+      <tr>
+        <td style="padding:10px 8px;border-top:1px solid #d6dde6;text-align:center;color:#5d6b7a;">1</td>
+        <td style="padding:10px 12px;border-top:1px solid #d6dde6;">#</td>
+        <td style="padding:10px 12px;border-top:1px solid #d6dde6;"></td>
+        <td style="padding:10px 12px;border-top:1px solid #d6dde6;line-height:1.6;"></td>
+      </tr>
+      <tr>
+        <td style="background:#f8fafc;padding:10px 8px;border-top:1px solid #d6dde6;text-align:center;color:#5d6b7a;">2</td>
+        <td style="background:#f8fafc;padding:10px 12px;border-top:1px solid #d6dde6;">#</td>
+        <td style="background:#f8fafc;padding:10px 12px;border-top:1px solid #d6dde6;"></td>
+        <td style="background:#f8fafc;padding:10px 12px;border-top:1px solid #d6dde6;line-height:1.6;"></td>
+      </tr>
+      <tr>
+        <td style="padding:10px 8px;border-top:1px solid #d6dde6;text-align:center;color:#5d6b7a;">3</td>
+        <td style="padding:10px 12px;border-top:1px solid #d6dde6;">#</td>
+        <td style="padding:10px 12px;border-top:1px solid #d6dde6;"></td>
+        <td style="padding:10px 12px;border-top:1px solid #d6dde6;line-height:1.6;"></td>
+      </tr>
+      <tr>
+        <td style="background:#f8fafc;padding:10px 8px;border-top:1px solid #d6dde6;text-align:center;color:#5d6b7a;">4</td>
+        <td style="background:#f8fafc;padding:10px 12px;border-top:1px solid #d6dde6;">#</td>
+        <td style="background:#f8fafc;padding:10px 12px;border-top:1px solid #d6dde6;"></td>
+        <td style="background:#f8fafc;padding:10px 12px;border-top:1px solid #d6dde6;line-height:1.6;"></td>
+      </tr>
+    </table>
+  </td></tr>
+  <tr><td style="padding:16px 0 0 0;line-height:1.7;">下班前會再回報完成狀況，以上，謝謝。</td></tr>
+</table>
+      </div>
+    </div>
+    <p class="tip">要增減列數：在 Outlook 表格裡按右鍵 →「插入」→「插入下方列」。寫「已完成」時，記得註明是否已有主管確認。</p>
+  </section>
+
+  <!-- ============ 6. 內部 IT 需求 ============ -->
+  <section class="card">
+    <div class="card-head">
+      <div>
+        <h2>內部 IT 需求／權限申請</h2>
+        <div class="meta"><b>主旨：</b>【內部 IT 需求】【系統名稱】【申請項目】－Tiger Hsu｜<b>收件者：</b>Jane｜<b>副本：</b>Purple、自己</div>
+      </div>
+      <div class="btns"><button class="ghost" id="edit-tpl6" onclick="toggleEdit('tpl6')">編輯</button><button onclick="copyTpl('tpl6')">複製範本</button></div>
+    </div>
+    <div class="preview">
+      <div id="tpl6">
+<table role="presentation" width="640" cellpadding="0" cellspacing="0" border="0" style="width:640px;border-collapse:collapse;font-family:'Microsoft JhengHei',Arial,sans-serif;font-size:14px;color:#1d2733;">
+  <tr><td style="padding:0 0 12px 0;line-height:1.7;">Hi Jane,</td></tr>
+  <tr><td style="padding:0 0 16px 0;line-height:1.7;">想申請【系統名稱＋權限】，【一句話說明用途】，需求如下：</td></tr>
+  <tr><td style="padding:0;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;border:1px solid #d6dde6;">
+      <tr><td colspan="2" style="background:#1f4e79;color:#ffffff;font-weight:bold;font-size:15px;padding:10px 14px;">內部 IT 需求單</td></tr>
+      <tr><td width="190" style="width:190px;background:#f2f5f9;color:#1f4e79;font-weight:bold;padding:10px 14px;border-top:1px solid #d6dde6;vertical-align:top;">需求類型</td><td style="padding:10px 14px;border-top:1px solid #d6dde6;line-height:1.6;">【權限申請／異動／新增帳號／軟體安裝】</td></tr>
+      <tr><td width="190" style="width:190px;background:#f2f5f9;color:#1f4e79;font-weight:bold;padding:10px 14px;border-top:1px solid #d6dde6;vertical-align:top;">系統或軟體名稱</td><td style="padding:10px 14px;border-top:1px solid #d6dde6;line-height:1.6;">【系統名稱】</td></tr>
+      <tr><td width="190" style="width:190px;background:#f2f5f9;color:#1f4e79;font-weight:bold;padding:10px 14px;border-top:1px solid #d6dde6;vertical-align:top;">需求動作</td><td style="padding:10px 14px;border-top:1px solid #d6dde6;line-height:1.6;">【例：在既有 Read Only 權限之外，申請 Write 權限】</td></tr>
+      <tr><td width="190" style="width:190px;background:#f2f5f9;color:#1f4e79;font-weight:bold;padding:10px 14px;border-top:1px solid #d6dde6;vertical-align:top;">需求內容</td><td style="padding:10px 14px;border-top:1px solid #d6dde6;line-height:1.6;">【具體要做哪些操作】</td></tr>
+      <tr><td width="190" style="width:190px;background:#f2f5f9;color:#1f4e79;font-weight:bold;padding:10px 14px;border-top:1px solid #d6dde6;vertical-align:top;">需求原因／用途</td><td style="padding:10px 14px;border-top:1px solid #d6dde6;line-height:1.6;">【為什麼需要】</td></tr>
+      <tr><td width="190" style="width:190px;background:#f2f5f9;color:#1f4e79;font-weight:bold;padding:10px 14px;border-top:1px solid #d6dde6;vertical-align:top;">使用／影響對象</td><td style="padding:10px 14px;border-top:1px solid #d6dde6;line-height:1.6;">【誰會使用、影響範圍】</td></tr>
+      <tr><td width="190" style="width:190px;background:#f2f5f9;color:#1f4e79;font-weight:bold;padding:10px 14px;border-top:1px solid #d6dde6;vertical-align:top;">希望完成日期</td><td style="padding:10px 14px;border-top:1px solid #d6dde6;line-height:1.6;">【YYYY/MM/DD，或「無指定，依作業安排」】</td></tr>
+      <tr><td width="190" style="width:190px;background:#f2f5f9;color:#1f4e79;font-weight:bold;padding:10px 14px;border-top:1px solid #d6dde6;vertical-align:top;">其他補充／說明</td><td style="padding:10px 14px;border-top:1px solid #d6dde6;line-height:1.6;">【例：不包含資料刪除或系統管理權限】</td></tr>
+      <tr><td width="190" style="width:190px;background:#f2f5f9;color:#1f4e79;font-weight:bold;padding:10px 14px;border-top:1px solid #d6dde6;vertical-align:top;">主管審核</td><td style="padding:10px 14px;border-top:1px solid #d6dde6;line-height:1.6;">【已徵求主管同意／待主管核可】</td></tr>
+    </table>
+  </td></tr>
+  <tr><td style="padding:16px 0 0 0;line-height:1.7;">再請協助評估與開通，如需補充資料請告知，謝謝。</td></tr>
+</table>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="toast" id="toast">已複製，到 Outlook 按 Ctrl+V 貼上</div>
+
+<script>
+  var STORE = 'tpl-drafts:' + location.pathname;
+
+  function showToast(msg) {
+    var t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(function () { t.classList.remove('show'); }, 2200);
+  }
+
+  function editTargets(id) {
+    var tpl = document.getElementById(id);
+    var meta = tpl.closest('section').querySelector('.meta');
+    return [tpl, meta];
+  }
+
+  function readDrafts() {
+    try { return JSON.parse(localStorage.getItem(STORE) || '{}'); } catch (e) { return {}; }
+  }
+
+  function saveDraft(id) {
+    var d = readDrafts();
+    var els = editTargets(id);
+    d[id] = { tpl: els[0].innerHTML, meta: els[1].innerHTML };
+    try { localStorage.setItem(STORE, JSON.stringify(d)); } catch (e) {}
+  }
+
+  function setEditing(id, on) {
+    editTargets(id).forEach(function (el) {
+      if (on) el.setAttribute('contenteditable', 'true');
+      else el.removeAttribute('contenteditable');
+    });
+    var b = document.getElementById('edit-' + id);
+    b.textContent = on ? '完成' : '編輯';
+    b.classList.toggle('on', on);
+  }
+
+  function toggleEdit(id) {
+    var on = document.getElementById(id).getAttribute('contenteditable') !== 'true';
+    setEditing(id, on);
+    if (on) { document.getElementById(id).focus(); }
+    else { saveDraft(id); showToast('已暫存修改'); }
+  }
+
+  function stopAllEditing() {
+    document.querySelectorAll('[id^="edit-"]').forEach(function (b) {
+      var id = b.id.slice(5);
+      if (document.getElementById(id).getAttribute('contenteditable') === 'true') {
+        setEditing(id, false);
+        saveDraft(id);
+      }
+    });
+  }
+
+  function downloadPage() {
+    stopAllEditing();
+    var html = '<!doctype html>\n' + document.documentElement.outerHTML;
+    var blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = '信件範本.html';
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+    showToast('已下載修改後的檔案');
+  }
+
+  function resetDrafts() {
+    if (!confirm('要捨棄所有還沒下載的修改，回到檔案原本的內容嗎？')) return;
+    try { localStorage.removeItem(STORE); } catch (e) {}
+    location.reload();
+  }
+
+  // Restore drafts saved in this browser
+  (function () {
+    var d = readDrafts();
+    Object.keys(d).forEach(function (id) {
+      var tpl = document.getElementById(id);
+      if (!tpl) return;
+      var els = editTargets(id);
+      if (d[id].tpl) els[0].innerHTML = d[id].tpl;
+      if (d[id].meta) els[1].innerHTML = d[id].meta;
+    });
+    document.addEventListener('input', function (ev) {
+      var tpl = ev.target.closest && ev.target.closest('[id^="tpl"]');
+      var sec = ev.target.closest && ev.target.closest('section');
+      if (tpl) saveDraft(tpl.id);
+      else if (sec) saveDraft(sec.querySelector('[id^="tpl"]').id);
+    });
+  })();
+
+  function copyTpl(id) {
+    stopAllEditing();
+    var el = document.getElementById(id);
+    var range = document.createRange();
+    range.selectNode(el);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+    sel.removeAllRanges();
+    showToast(ok ? '已複製，到 Outlook 按 Ctrl+V 貼上' : '複製失敗，請手動選取範本後按 Ctrl+C');
+  }
+</script>
+</body>
+</html>

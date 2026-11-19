@@ -1,0 +1,19 @@
+{
+  "id": "service-note",
+  "name": "服務通知",
+  "category": "通知",
+  "tags": ["服務"],
+  "language": "zh-TW",
+  "version": "draft",
+  "updatedAt": "2026-11-16T00:00:00Z",
+  "subject": "服務通知：{{service}}",
+  "bodyHtml": "<p>{{customer}} 您好：</p><p>本次 {{service}} 預計於 {{date}} 進行。</p>",
+  "bodyText": "{{customer}} 您好：\n本次 {{service}} 預計於 {{date}} 進行。",
+  "fields": [
+    {"key": "customer", "label": "客戶名稱", "type": "text", "required": true},
+    {"key": "service", "label": "服務名稱", "type": "text", "required": true},
+    {"key": "date", "label": "服務日期", "type": "date", "required": true}
+  ],
+  "owner": "IT",
+  "audience": []
+}

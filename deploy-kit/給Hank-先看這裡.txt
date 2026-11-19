@@ -1,0 +1,47 @@
+寄信模式 1.7 — 公司部署資料包
+
+這是什麼
+  Outlook 撰寫郵件時用的「寄信模式」增益集：同事選公司範本、填欄位、插入目前草稿，自己確認後再寄出。
+  公司範本集中存在 SharePoint，由一台主機提供面板網頁與範本服務。
+  範本更新後，同事重開面板就拿到新版，不用每人安裝程式。
+
+怎麼用這包
+  把整包交給你的 AI，請它從 AI-TASK.md 開始照做。
+  AI 會在需要時停下來問你，主要是下面這幾件事。
+
+需要你決定或提供的
+  1. 主機：要放在哪（公司 Windows／Linux 主機、容器，或 Azure App Service）。需要 Node.js 22.12 以上。
+  2. 網址：一個固定 HTTPS 網址，例如 https://mailtemplates.公司網域（不能有子路徑）。
+  3. 試行名單：Windows、Mac Outlook 使用者各至少一位的公司帳號。
+  4. 範本管理者：誰可以發布範本（Publisher）、誰只能編輯（Editor）。
+  5. SharePoint 網站：建議新開一個不公開的專用網站（例如 SendModes），只有 IT 管理者是成員。
+
+需要你本人操作的（AI 不能代你登入或輸入密碼）
+  A. 執行 entra/setup-entra.ps1：用 Entra 管理員帳號登入並完成 MFA。
+     它會建立登入用和範本 API 用的 2 個 App、權限和角色，最後印出 3 個 ID。
+  B. 建立 SharePoint 網站，上傳 catalog/catalog-state.json（4 份範本草稿），
+     再執行 entra/setup-sharepoint.ps1。它會建立第 3 個 App，只授權寫入這一個網站。
+  C. 在 Microsoft 365 管理中心 → 設定 → 整合式應用程式 → 上傳自訂增益集，
+     上傳 AI 產生的 manifest.production.xml，只分配給試行名單。
+
+不需要做的
+  不需要 client secret、Graph 讀信或寄信權限。
+  SharePoint 後端只用 Sites.Selected，不需要全租戶的 SharePoint 權限。
+  同事電腦不需要安裝任何東西。
+  不需要另外上傳圖示：圖示已內建在網站，XML 會指到網站上的圖示。
+  logo/ 資料夾只是給 Entra App 顯示用，腳本會自動上傳。
+
+預估時間
+  主機與網址備妥後，AI 部署約 1–2 小時；你本人操作 A、B、C 約 30 分鐘。
+  M365 分配後，Outlook 可能要 24 小時左右才會出現按鈕（Microsoft 的限制）。
+
+如果 SharePoint 授權卡住
+  可以先用主機上的檔案存範本，讓試行開始。之後再搬到 SharePoint，同事不用重裝。
+
+範本由你決定
+  catalog/catalog-state.json 裡的 4 份範本，是需求者原本自己在用的範本，轉成未發布的草稿當起點。
+  要發布哪幾份、內容怎麼改、要不要刪，都由你決定。之後新增或修改範本，也是在 Outlook 面板的管理頁操作。
+  注意：「內部 IT 需求／權限申請」的主旨結尾寫死了需求者的名字，發布前請先改掉。
+
+完成後
+  AI 會產生一份完成報告，由 IT 自己留存，之後維護和憑證續期時用。

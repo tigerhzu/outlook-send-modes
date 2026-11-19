@@ -1,0 +1,54 @@
+{
+  "name": "outlook-send-modes",
+  "version": "1.7.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "start": "vite --host localhost --port 3443 --strictPort",
+    "start:background": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/start-background.ps1",
+    "certs:install": "office-addin-dev-certs install",
+    "certs:verify": "office-addin-dev-certs verify",
+    "verify:https": "node scripts/verify-local-https.mjs",
+    "typecheck": "tsc --noEmit",
+    "build": "tsc --noEmit && vite build",
+    "build:installer": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/build-installer.ps1",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "validate:manifest": "office-addin-manifest validate manifest.xml",
+    "manifest:production": "node scripts/production-manifest.mjs",
+    "build:company": "node scripts/build-company.mjs",
+    "demo:company": "node scripts/company-local-demo.mjs",
+    "test:company-local": "node --test tests/company-local.test.mjs",
+    "start:company": "node --env-file=.env server/index.mjs",
+    "test:server": "node --test tests/server*.test.mjs",
+    "test:manifest": "node --test scripts/production-manifest.test.mjs",
+    "import:company": "node scripts/company-import.mjs",
+    "init:company": "node scripts/company-init.mjs",
+    "test:import": "node --test tests/company-import.test.mjs"
+  },
+  "dependencies": {
+    "@azure/identity": "^4.14.1",
+    "@azure/msal-browser": "^5.29.1",
+    "dompurify": "^3.4.17",
+    "jose": "^6.2.17",
+    "parse5": "^8.1.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.0",
+    "@types/node": "^26.6.6",
+    "@types/office-js": "^1.0.617",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "jsdom": "^31.0.1",
+    "office-addin-dev-certs": "^3.0.1",
+    "office-addin-manifest": "^3.0.1",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.8",
+    "vitest": "^5.1.0"
+  }
+}
